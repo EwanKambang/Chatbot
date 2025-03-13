@@ -9,18 +9,24 @@ import os
 
 app = FastAPI()
 load_dotenv()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # default port for nextjs
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 model = ChatOpenAI(
         openai_api_key = os.getenv("OPENAI_API_KEY"),
         model_name="gpt-3.5-turbo"
 )
 
-# Define request model
 class ChatRequest(BaseModel):
     message: str
 
-# Define system prompt
 SYSTEM_PROMPT = """
-You are a helpful AI assistant. Provide concise and accurate responses to user queries.
+You are a conversational AI. Respond to the person as if you were a close friend.
 """
 
 @app.get("/")
