@@ -1,9 +1,9 @@
-// frontend/next.config.ts
 import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    unoptimized: true, // Disables image optimization for static export
+  reactStrictMode: true,
+  env: {
+    API_BASE_URL: "https://chatbot-raos.onrender.com",
   },
 };
 
