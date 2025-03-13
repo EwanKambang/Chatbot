@@ -12,7 +12,7 @@ export default function Home() {
     if (!message.trim()) return;
 
     try {
-      const res = await axios.post("https://chatbot-raos.onrender.com", {
+      const res = await axios.post("https://chatbot-raos.onrender.com/chat", {
         message: message,
       });
       setResponse(res.data.response);
