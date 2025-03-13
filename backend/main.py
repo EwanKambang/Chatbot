@@ -12,7 +12,8 @@ load_dotenv()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # default port for nextjs
+    allow_origins=["http://localhost:3000",
+                   "chatbot-eight-tan.vercel.app"],  # default port for nextjs
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
